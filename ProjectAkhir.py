@@ -198,8 +198,7 @@ def menuUserFree():
                         else:
                             print("Maaf input anda invalid, coba untuk input sesuai pilihan yang ada.")
                     if user["privilage"] == "premium":
-                        menuUserPremium()
-                        return
+                        return menuUserPremium()
         except KeyboardInterrupt:
             print("\nInvalid Input")
 
@@ -229,8 +228,8 @@ def userFree():
         except ValueError:
             print("Pilih ID film dengan angka")
         except KeyboardInterrupt:
-            print("")
-            continue
+            print("\nInvalid Input")
+            
 
 
 
