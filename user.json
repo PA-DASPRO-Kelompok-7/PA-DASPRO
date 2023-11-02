@@ -1,0 +1,32 @@
+[
+    {
+        "username": "hisyam",
+        "password": "hisym20",
+        "saldo": 50000,
+        "privilage": "free"
+    },
+    {
+        "username": "aidil",
+        "password": "ai40",
+        "saldo": 100000,
+        "privilage": "free"
+    },
+    {
+        "username": "fajar",
+        "password": "fajr60",
+        "saldo": 0,
+        "privilage": "free"
+    },
+    {
+        "username": "ezra",
+        "password": "ez52",
+        "saldo": 90000,
+        "privilage": "free"
+    },
+    {
+        "username": "aii",
+        "password": "23",
+        "saldo": 0,
+        "privilage": "premium"
+    }
+]
