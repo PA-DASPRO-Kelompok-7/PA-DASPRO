@@ -77,7 +77,7 @@ def register():
                 print("Username tidak boleh kosong\n")
                 continue
             if len(username) > 15:
-                print("Username tidak boleh lebih dari 215")
+                print("Username tidak boleh lebih dari 15")
                 continue
             if all (x.isalnum()for x in username):
                 password = pwinput.pwinput("Masukkan password: ").strip()
