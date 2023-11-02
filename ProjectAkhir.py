@@ -219,7 +219,7 @@ def userFree():
                     print("Kamu perlu beralih ke akun premium jika ingin menayangkan film.")
                     opsi = input("Apakah kamu ingin beralih ke premium? (y/t): ").lower()
                     if opsi == "y":
-                        return premium()
+                        return beliPremium()
                     elif opsi == "t":
                         return
                     else:
