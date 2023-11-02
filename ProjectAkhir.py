@@ -21,7 +21,7 @@ with open(json_path_user,"r") as userdata:
 
 
 
-
+#fungsi yang digunakan untuk mengkonversi data film dalam json menjadi pretty tabble
 def daftarFilm():
     table_film = PrettyTable()
     table_film.field_names =  ["ID","Judul Film","Genre","Tanggal Release"]
@@ -31,7 +31,7 @@ def daftarFilm():
 
 
 
-
+#menu utama untuk user membuat akun atau login, dan admin untuk login
 def mainMenu():
     while True:
         try:
@@ -48,12 +48,12 @@ def mainMenu():
             print("|                                                                            |")
             print("|                                                                            |")
             print("==============================================================================")
-            ask = input("Pilih opsi (1/2/0): ")
-            if ask == "1":
+            opsi = input("Pilih opsi (1/2/0): ")
+            if opsi == "1":
                 register()
-            elif ask == "2":
+            elif opsi == "2":
                 login()
-            elif ask == "0":
+            elif opsi == "0":
                 print("-------------------------Terima Kasih sudah menggunakan aplikasi kami-------------------------")
                 break
             else:
@@ -63,8 +63,9 @@ def mainMenu():
 
 
 
+#fungsi buat user jika ingin membuat akun baru
 def register():
-    print("------------------------Silahkan Registrasi-------------------------\n")
+    print("\n------------------------Silahkan Registrasi-------------------------")
     while True:
         try:
             notAvailable = False
@@ -118,10 +119,10 @@ def register():
 
 
 
-#FUNCTION UNTUK LOGIN
+#fungsi untuk user ataupun admin jika ingin login
 def login():
     global username
-    print("---------------------------Silahkan Login---------------------------\n")
+    print("\n---------------------------Silahkan Login---------------------------")
     while True:
         try:
             username = input("Masukkan username: ").lower().strip()
@@ -160,7 +161,7 @@ def login():
 
 
 
-
+#fungsi yang memuat menu utama ketika login sebagai user free
 def menuUserFree():
     while True:
         try:
@@ -183,16 +184,16 @@ def menuUserFree():
                         print("|                                                                            |")
                         print("|                                                                            |")
                         print("==============================================================================")
-                        ask = input("Pilih opsi (1/2/3/0): ")
-                        if ask == "1":
+                        opsi = input("Pilih opsi (1/2/3/0): ")
+                        if opsi == "1":
                             userFree()
-                        elif ask == "2":
+                        elif opsi == "2":
                             beliPremium()
-                        elif ask == "3":
+                        elif opsi == "3":
                             cekSaldo()
-                        elif ask == "4":
+                        elif opsi == "4":
                             topup()
-                        elif ask == "0":
+                        elif opsi == "0":
                             return
                         else:
                             print("Maaf input anda invalid, coba untuk input sesuai pilihan yang ada.")
@@ -204,22 +205,22 @@ def menuUserFree():
 
 
 
-
+#fungsi yang memuat jika user free ingin melihat daftar film dan menonton
 def userFree():
     while True:
         try:
             daftarFilm()
             print("Input 0 untuk Keluar")
-            ask = int(input("Pilih ID Film yang ingin dimainkan: "))
-            if ask == 0:
+            opsi = int(input("Pilih ID Film yang ingin dimainkan: "))
+            if opsi == 0:
                 break
             for i in range(len(film)):
-                if film[i][0] == ask:
-                    print("Kamu perlu beralih ke akun premium jika ingin memainkan film.")
-                    ask = input("Apakah kamu ingin beralih ke premium? (y/t): ").lower()
-                    if ask == "y":
+                if film[i][0] == opsi:
+                    print("Kamu perlu beralih ke akun premium jika ingin menayangkan film.")
+                    opsi = input("Apakah kamu ingin beralih ke premium? (y/t): ").lower()
+                    if opsi == "y":
                         return premium()
-                    elif ask == "t":
+                    elif opsi == "t":
                         return
                     else:
                         print("Maaf input anda invalid.")
@@ -234,7 +235,7 @@ def userFree():
 
 
 
-#FUNCTION UNTUK BERALIH KE AKUN PREMIUM
+#fungsi untuk user free jika ingin beralih ke akun premium
 def beliPremium():
     print("==============================================================================")
     print("|                                                                            |")
@@ -305,7 +306,7 @@ def beliPremium():
 
 
 
-
+#fungsi jika user ingin mengecek saldo yang ada
 def cekSaldo():
     print("==============================================================================")
     print("|                                                                            |")
@@ -324,7 +325,7 @@ def cekSaldo():
 
 
 
-
+#fungsi untuk user free melakukan topup/isi saldo
 def topup():
     print("==============================================================================")
     print("|                                                                            |")
@@ -370,7 +371,7 @@ def topup():
 
 
 
-
+#fungsi yang memuat menu utama user premium
 def menuUserPremium():
     while True:
         try:
@@ -390,15 +391,15 @@ def menuUserPremium():
             print("|                                                                            |")
             print("|                                                                            |")
             print("==============================================================================")
-            ask = input("Pilih opsi: ")
-            if ask == "1":
+            opsi = input("Pilih opsi: ")
+            if opsi == "1":
                 daftarFilm()
                 nontonPremium()
-            elif ask == "2":
+            elif opsi == "2":
                 searchJudul()
-            elif ask == "3":
+            elif opsi == "3":
                 searchGenre()
-            elif ask == "0":
+            elif opsi == "0":
                 break
             else:
                 print("Maaf input anda invalid, coba untuk input sesuai pilihan yang ada.")
@@ -408,17 +409,17 @@ def menuUserPremium():
 
 
 
-
+#fungsi untuk user premium jika ingin menampilkan seluruh daftar film dan menonton
 def nontonPremium():
     filmAda = False
     try:
         while True:
             print("0 untuk keluar")
-            ask = int(input("Pilih ID Film: "))
-            if ask == 0:
+            opsi = int(input("Pilih ID Film: "))
+            if opsi == 0:
                 return
             for i in range(len(film)):
-                if film[i][0] == ask:
+                if film[i][0] == opsi:
                     filmAda = True
                     print("Menayangkan film ")
                     print(f"Judul          : {film[i][1]}")
@@ -454,7 +455,7 @@ def nontonPremium():
 
 
 
-
+#fungsi untuk user premium jika ingin mencari judul film dan menonton film
 def searchJudul():
     try:
         cariFilm = input("Masukkan nama film yang ingin Anda cari: ")
@@ -474,13 +475,13 @@ def searchJudul():
             while True:
                 try:
                     print("0 untuk keluar")
-                    ask = int(input("Pilih ID Film: "))
-                    if ask == 0:
+                    opsi = int(input("Pilih ID Film: "))
+                    if opsi == 0:
                         return
                     for i in range(len(namaFilm)):
-                        if namaFilm[i][0] == ask:
+                        if namaFilm[i][0] == opsi:
                             filmAda = True
-                            print("Memainkan film ")
+                            print("menayangkan film ")
                             print(f"Judul          : {namaFilm[i][1]}")
                             print(f"Genre          : {namaFilm[i][2]}")
                             print(f"Tanggal Tayang : {namaFilm[i][3]}")
@@ -516,7 +517,7 @@ def searchJudul():
 
 
 
-
+#fungsi untuk user premium jika ingin mencari film dengan genre tertentu dan menontonnya
 def searchGenre():
     try:
         cariGenre = input("Masukkan Genre film yang ingin dicari: ")
@@ -536,13 +537,13 @@ def searchGenre():
             while True:
                 try:
                     print("0 untuk keluar")
-                    ask = int(input("Pilih ID Film: "))
-                    if ask == 0:
+                    opsi = int(input("Pilih ID Film: "))
+                    if opsi == 0:
                         return
                     for i in range(len(namaGenre)):
-                        if namaGenre[i][0] == ask:
+                        if namaGenre[i][0] == opsi:
                             filmAda = True
-                            print("Memainkan film ")
+                            print("menayangkan film ")
                             print(f"Judul          : {namaGenre[i][1]}")
                             print(f"Genre          : {namaGenre[i][2]}")
                             print(f"Tanggal Tayang : {namaGenre[i][3]}")
@@ -576,11 +577,7 @@ def searchGenre():
 
 
 
-
-
-
-
-
+#fungsi yang memuat menu utama dari admin
 def menuAdmin():
     try:
         while True:
@@ -613,7 +610,7 @@ def menuAdmin():
 
 
 
-
+#fungsi jika admin ingin menambahkan film baru ke dalam database
 def tambah():
     try:
         while True:
@@ -642,7 +639,7 @@ def tambah():
 
 
 
-
+#fungsi jika admin ingin mengubah data film yang ada pada database
 def ubah():
     try:
         daftarFilm()
@@ -676,7 +673,7 @@ def ubah():
 
 
 
-
+#fungsi jika admin ingin menghapus film dari database
 def Hapus():
     try:
         daftarFilm()
@@ -701,8 +698,5 @@ def Hapus():
         print("\nInvalid Input")
 
 
-
-
-
-
+#memanggil menu utama untuk menjalankan program
 mainMenu()
