@@ -77,7 +77,7 @@ def register():
                 print("Username tidak boleh kosong\n")
                 continue
             if len(username) > 15:
-                print("Username tidak boleh lebih dari 15")
+                print("Username tidak boleh lebih dari 215")
                 continue
             if all (x.isalnum()for x in username):
                 password = pwinput.pwinput("Masukkan password: ").strip()
@@ -199,6 +199,7 @@ def menuUserFree():
                             print("Maaf input anda invalid, coba untuk input sesuai pilihan yang ada.")
                     if user["privilage"] == "premium":
                         return menuUserPremium()
+                        
         except KeyboardInterrupt:
             print("\nInvalid Input")
 
@@ -229,8 +230,6 @@ def userFree():
             print("Pilih ID film dengan angka")
         except KeyboardInterrupt:
             print("\nInvalid Input")
-            
-
 
 
 
@@ -249,7 +248,7 @@ def beliPremium():
                     bayar = input("Apakah kamu ingin beralih ke akun premium dengan harga Rp800.000? (y/t): ").lower()
                     if bayar == "y":
                         if user["saldo"] < 800000:
-                            input(f"Saldo anda tidak mencukupi, saldo anda sisa {user['saldo']}, silahkan isi saldo terlebih dahulu (enter) ").lower()
+                            getpass.getpass(f"Saldo anda tidak mencukupi, saldo anda sisa {user['saldo']}, silahkan isi saldo terlebih dahulu (enter) ").lower()
                             return topup()
                         elif user["saldo"] >= 800000:
                             saldoAwal = user["saldo"]
