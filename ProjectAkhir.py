@@ -662,8 +662,9 @@ def ubah():
                 with open (json_path_film,"w") as sn:
                     json.dump(film,sn, indent=4)
                 print("------------------------Film berhasil ubah--------------------------")
+                return
         else:
-            print("Maaf Perhiasan dengan ID tersebut tidak ditemukan.")
+            print("Maaf Film dengan ID tersebut tidak ditemukan.")
     except ValueError:
         print("ID harus berupa angka")
     except KeyboardInterrupt:
